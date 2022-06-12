@@ -15,7 +15,6 @@ let departureVector: THREE.Vector3;
 let arrivalVector: THREE.Vector3;
 let normalVector: THREE.Vector3;
 let cos: number;
-let radian: number;
 let moveQtn: THREE.Quaternion;
 let rotateQtn: THREE.Quaternion;
 let returnQtn: THREE.Quaternion;
@@ -161,9 +160,6 @@ function init(): void {
   departureVector = new THREE.Vector3(departurePoint.position.x, departurePoint.position.y, departurePoint.position.z);
   arrivalVector = new THREE.Vector3(arrivalPoint.position.x, arrivalPoint.position.y, arrivalPoint.position.z);
   normalVector = new THREE.Vector3().crossVectors(departureVector.normalize(), arrivalVector.normalize()).normalize();
-  // 原点-出発点、原点-到着点のなす角
-  cos = departureVector.dot(arrivalVector);
-  radian = Math.acos(cos);
   
   // 法線を可視化するための点
   // const normalPoint = new THREE.Mesh(sphereGeometry, pointMaterial);
